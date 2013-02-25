@@ -12,6 +12,8 @@ allprojects {
 
 sonarRunner {
     sonarProperties {
+        property "sonar.projectName", "Simple Project"
+        property "sonar.projectKey", "org.sonar.tests:simple-project"
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
     }
 }
