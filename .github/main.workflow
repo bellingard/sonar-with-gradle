@@ -11,6 +11,6 @@ action "Trigger analysis" {
 }
 
 action "Simple Build" {
-  uses = "./gradlew"
+  uses = "docker://gradle:latest"
   args = "test"
 }
