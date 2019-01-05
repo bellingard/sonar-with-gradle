@@ -1,6 +1,6 @@
 workflow "Run SC analysis" {
   on = "push"
-  resolves = ["Trigger analysis", "Simple Build"]
+  resolves = ["Trigger analysis"]
 }
 
 action "Trigger analysis" {
@@ -8,6 +8,7 @@ action "Trigger analysis" {
   runs = "./gradlew"
   args = "sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN"
   secrets = ["SONAR_TOKEN"]
+  needs = "Simple Build"
 }
 
 action "Simple Build" {
